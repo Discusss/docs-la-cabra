@@ -8,9 +8,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: {
-				en: 'LaCabra Docs',
-				es: 'Documentación LaCabra',
+				en: 'LaCabra',
+				es: 'LaCabra',
 			},
+			logo: {
+				src: './src/assets/cabra_neutral.svg',
+			},
+			favicon: './src/assets/cabra_neutral.svg',
 			defaultLocale: 'es',
 			locales: {
 				// English docs in `src/content/docs/en/`
@@ -23,7 +27,10 @@ export default defineConfig({
 					lang: 'es',
 				},
 			},
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Discusss/docs-la-cabra' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/SJqrGP7' },
+			],
 			sidebar: [
 				{ 
 					label: "Introduction",
