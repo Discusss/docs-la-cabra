@@ -8,8 +8,8 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: {
-				en: 'LaCabra',
-				es: 'LaCabra',
+				en: 'La Cabra',
+				es: 'La Cabra',
 			},
 			logo: {
 				src: './src/assets/cabra_neutral.svg',
