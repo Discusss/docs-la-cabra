@@ -1,0 +1,35 @@
+---
+title: Documentación de La Cabra
+description: Toda la información que necesitas para empezar a utilizar La Cabra.
+template: splash # Remove or comment out this line to display the site sidebar on this page.
+hero:
+  tagline: Aprende a usar La Cabra y saca el máximo provecho de sus funcionalidades.
+  image:
+    file: ../../../assets/cabra_neutral.svg
+  actions:
+    - text: Empezar a usar La Cabra
+      link: /guides/example/
+      icon: right-arrow
+    - text: Añadir La Cabra a tu servidor
+      link: https://discordapp.com/api/oauth2/authorize?client_id=576862209884553217&permissions=8&scope=bot
+      icon: external
+      variant: minimal
+---
+
+import { Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+## Next steps
+
+<CardGrid>
+	<LinkCard
+		title="Configurar La Cabra"
+		 href="/es/guides/example/"
+		 description='Aprende a configurar La Cabra, tanto con su dashboard como con su archivo de configuración.'
+	/>
+
+	<LinkCard
+		title="Usar La Cabra"
+		 href="/es/guides/example/"
+		 description='Aprende a usar La Cabra y conoce todos sus comandos.'
+	/>
+</CardGrid>
