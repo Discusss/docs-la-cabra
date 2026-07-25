@@ -1,40 +1,35 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: La Cabra Documentation
+description: All the information you need to start using La Cabra.
 template: splash # Remove or comment out this line to display the site sidebar on this page.
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Learn how to use La Cabra and get the most out of its features.
   image:
-    file: ../../../assets/houston.webp
+    file: ../../../assets/cabra_neutral.svg
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Learn how to use La Cabra
+      link: /en/intro/intro/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: Add La Cabra to your server
+      link: https://discordapp.com/api/oauth2/authorize?client_id=576862209884553217&permissions=8&scope=bot
       icon: external
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 ## Next steps
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+<CardGrid>
+	<LinkCard
+		title="Configure La Cabra"
+		 href="/en/config/howto/"
+		 description='Learn how to configure La Cabra, both with its dashboard and its configuration file.'
+	/>
+
+	<LinkCard
+		title="Use La Cabra"
+		 href="/en/commands/example/"
+		 description='Learn how to use La Cabra and discover all its commands.'
+	/>
 </CardGrid>

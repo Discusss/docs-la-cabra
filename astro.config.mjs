@@ -5,6 +5,8 @@ import { escapeHTML } from 'astro/runtime/server/escape.js';
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://discuss.github.io/",
+	base: "docs-la-cabra",
 	integrations: [
 		starlight({
 			title: {
