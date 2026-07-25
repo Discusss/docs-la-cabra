@@ -47,10 +47,39 @@ Al cambiar algún ajuste, saldrá en la parte inferior un botón para guardar lo
 
 ## Sobre el archivo de configuración
 
-Un archgivo de configuración es un archivo YAML que contiene todos los ajustes de La Cabra. Permite guardar copias de seguridad de la configuración y puede ser más
+Un archivo de configuración es un archivo YAML que contiene todos los ajustes de La Cabra. Permite guardar copias de seguridad de la configuración y puede ser más
 rápido de configurar si se tiene experiencia con este tipo de archivos. No obstante, es más fácil cometer errores al editarlo,
 por lo que se recomienda usar la dashboard si no se tiene experiencia. Para ello, se puede usar un editor de texto con resaltado de sintaxis para YAML,
-como Visual Studio Code.
+como Visual Studio Code o una herramienta online como https://onlineyamltools.com/edit-yaml.
+
+La configuración de La Cabra es un archivo de formato YAML, el nombre del archivo es la ID de tu servidor.
+Este es un ejemplo de configuración muy básico:
+
+```yaml
+prefix: '/'
+commands:
+  'ban': 20
+  'borrar': 10
+  'clear': 10
+```
+
+El bot se divide en módulos, los cuales necesitas declarar en la configuración para que funcionen. Cada uno de esos módulos son los listados en los diferentes
+apartados de esta documentación.
+
+Si decides que vas a configurar La Cabra mediante el archivo de configuración, puedes obtener la configuración de tu servidor con el comando `/exportar` si eres el dueño,
+o mediante el comando `/iniciar` si eres un administrador. Cuando obtengas tu archivo de configuración será algo parecido a esto, pero más extenso:
+
+```yaml
+lang: 'es-ES'      # El idioma del bot, por defecto es 'es-ES' (Español de España), puede ver la lista de idiomas disponibles en https://docs.lacabra.app/langs
+prefix: '-'             # El prefijo de los comandos (por mensaje) del bot, por defecto es '-' (puedes cambiarlo a tu gusto)
+
+authorizations:
+    '163405286722371584': 100
+
+    .
+    .
+    .
+```
 
 
 
