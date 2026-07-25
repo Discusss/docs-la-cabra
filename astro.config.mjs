@@ -19,7 +19,7 @@ export default defineConfig({
 			logo: {
 				src: './src/assets/cabra_neutral.svg',
 			},
-			favicon: './src/assets/cabra_neutral.svg',
+			favicon: '/cabra_neutral.svg',
 			defaultLocale: 'es',
 			locales: {
 				// English docs in `src/content/docs/en/`
