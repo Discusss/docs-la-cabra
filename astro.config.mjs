@@ -7,6 +7,9 @@ import { escapeHTML } from 'astro/runtime/server/escape.js';
 export default defineConfig({
 	site: "https://elscabres.phodit.xyz/",
 	//base: "docs-la-cabra",
+	redirects: {
+		'/': '/es/',
+	},
 	integrations: [
 		starlight({
 			title: {
