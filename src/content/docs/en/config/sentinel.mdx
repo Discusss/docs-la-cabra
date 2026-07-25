@@ -1,0 +1,41 @@
+---
+title: Sentinel
+description: Configuration of the Sentinel module for advanced hate speech detection.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+The **Sentinel** module (`sentinel`) is a <Badge text="Premium" variant="success" /> feature that uses **Artificial Intelligence** to detect and filter Hate Speech on your server, helping to maintain a safe and respectful community.
+
+## Configuration options
+
+| Option | Description |
+| :--- | :--- |
+| `enabled` | `true` if you want the bot to activate Sentinel. |
+| `maxLvl` | The maximum authorization level affected by the filter. |
+| `threshold` | The detection threshold (0.0 to 1.0). The higher the value, the harder it will be to trigger. |
+| `deleteMessages` | `true` to delete offensive messages automatically. |
+| `validationChannel` | ID of the channel for manual validation and system training. |
+| `validationLvl` | Minimum level required to use manual validation. |
+| `ignoredRoles` | IDs of roles that the bot will not analyze. |
+| `ignoredChannels` | IDs of channels that the bot will not analyze. |
+| `language` | Primary detection language (e.g. `"es"`). |
+
+<Aside type="tip" title="Validation and Thresholds">
+It is recommended to start with a high `threshold` (e.g. `0.85`) and gradually lower it if you see too many offensive messages passing through, while using the `validationChannel` to adjust the bot's accuracy manually.
+</Aside>
+
+<Card title="Configuration example" icon="setting">
+```yaml
+sentinel:
+  enabled: true
+  maxLvl: 20
+  threshold: 0.85
+  deleteMessages: true
+  validationChannel: '333333333333333333'
+  validationLvl: 50
+  ignoredRoles: []
+  ignoredChannels: ['444444444444444444']
+  language: "es"
+```
+</Card>

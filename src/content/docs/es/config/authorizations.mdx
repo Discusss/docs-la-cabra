@@ -1,0 +1,31 @@
+---
+title: Autorizaciones
+description: Configuración del nivel de autorización para roles y usuarios en el entorno de La Cabra.
+---
+
+import { Aside, Card } from '@astrojs/starlight/components';
+
+El módulo de **Autorizaciones** (`authorizations`) permite asignar un nivel de autorización (un valor numérico) a los roles o usuarios específicos de tu servidor. 
+
+Este nivel de autorización es utilizado en todo el entorno de La Cabra para determinar quién tiene permisos sobre quién a la hora de aplicar sanciones, interactuar con módulos o ejecutar comandos de moderación.
+
+<Aside type="danger" title="Regla de oro de las Autorizaciones">
+Contemplemos dos usuarios: `Usuario1` y `Usuario2`.
+
+1. Si el nivel de `Usuario1` es **igual o inferior** al de `Usuario2`, `Usuario1` **no podrá** sancionar a `Usuario2` (saltará un error indicando la falta de permisos).
+2. `Usuario1` **sólo podrá** sancionar a `Usuario2` si su nivel es **estrictamente mayor**.
+</Aside>
+
+## ¿Cómo funciona?
+
+Para declarar las autorizaciones en tu archivo de configuración, debes usar la **ID del rol** o la **ID del usuario** entre comillas, seguida de dos puntos (`:`) y el nivel de autorización (un número).
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+authorizations:
+  '299564414997104192': 100 # Manuel777 (ID de Usuario)
+  '662355640987025485': 100 # Rol de Admin (ID de Rol)
+  '418587824107945994': 50  # Rol de Moderador (ID de Rol)
+  '633417290599104512': 10  # Rol de Ayudante (ID de Rol)
+```
+</Card>

@@ -1,0 +1,38 @@
+---
+title: Commands
+description: Configuration of the authorization level required to use the bot's commands.
+---
+
+import { Aside, Card } from '@astrojs/starlight/components';
+
+The **Commands** module (`commands`) allows you to specify the minimum authorization level necessary to execute each La Cabra command.
+
+<Aside type="note">
+This works in conjunction with the [Authorizations](/en/config/authorizations) module. When defining a level for a command, only those users or roles that have a level **equal to or higher** than the one specified will be able to use it.
+</Aside>
+
+## How does it work?
+
+To configure permissions, you must indicate the name of the command in your configuration file, followed by a colon (`:`) and the required authorization level.
+
+- If you specify `0`, any user will be able to use the command.
+- If you specify a higher number, it will require an assigned level equal to or higher.
+
+<Aside type="tip">
+When you generate the configuration file from the bot, the complete list of all available commands and their default levels will appear automatically, so you won't have to write them manually.
+</Aside>
+
+<Card title="Configuration example" icon="setting">
+```yaml
+commands: 
+  iniciar: 0
+  infrs: 100
+  link: 100
+  clear: 100
+  # ...
+  # (Rest of commands generated automatically)
+  # ...
+  cabra: 100
+  perro: 50
+```
+</Card>

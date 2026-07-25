@@ -1,0 +1,43 @@
+---
+title: Registros
+description: Configuración del módulo de registros para auditar eventos y acciones en el servidor.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+El módulo de **Registros** (`logs`) permite llevar una auditoría de todo lo que ocurre en tu servidor. Puedes configurar a qué canales se enviará cada tipo de evento e ignorar ciertos usuarios, canales o roles.
+
+<Aside type="caution">
+Recuerda que en las opciones que admiten varios IDs (listas con `[]`), debes separar cada ID con comas y ponerlas siempre entre comillas simples.
+</Aside>
+
+## Opciones de configuración
+
+| Opción | Descripción |
+| :--- | :--- |
+| `ignoredUsers` | La ID o IDs de los usuarios de los que el bot no registrará eventos. |
+| `ignoredChannels` | La ID o IDs de los canales de los que el bot no registrará eventos. |
+| `ignoredRoles` | La ID o IDs de los roles de los que el bot no registrará eventos. |
+| `messages` | La ID o IDs de los canales donde se enviarán los eventos de mensajes (borrados, editados, etc.). |
+| `joinsAndLeaves` | La ID o IDs de los canales donde se enviarán los eventos de entradas y salidas de miembros. |
+| `actions` | La ID o IDs de los canales donde se enviarán los eventos de los comandos de LA CABRA. |
+| `voice` | La ID o IDs de los canales donde se enviarán los eventos de voz. |
+| `censor` | La ID o IDs de los canales donde se enviarán los eventos del módulo de censor. |
+| `server` | La ID o IDs de los canales donde se enviarán los eventos del servidor (cambios de roles, etc.). |
+| `autoMod` | <Badge text="Premium" variant="success" /> La ID o IDs de los canales de eventos de AutoMod. |
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+logs:
+  ignoredUsers: ['987654321098765432']
+  ignoredChannels: ['112233445566778899']
+  ignoredRoles: ['223344556677889900']
+  messages: ['334455667788990011']
+  joinsAndLeaves: ['445566778899001122']
+  actions: ['556677889900112233']
+  voice: ['667788990011223344']
+  censor: ['778899001122334455']
+  server: ['889900112233445566']
+  autoMod: ['990011223344556677']
+```
+</Card>

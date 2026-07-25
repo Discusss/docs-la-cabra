@@ -1,0 +1,31 @@
+---
+title: Authorizations
+description: Configuration of the authorization level for roles and users in the La Cabra environment.
+---
+
+import { Aside, Card } from '@astrojs/starlight/components';
+
+The **Authorizations** module (`authorizations`) allows you to assign an authorization level (a numerical value) to specific roles or users on your server.
+
+This authorization level is used throughout the La Cabra environment to determine who has permission over whom when applying sanctions, interacting with modules, or executing moderation commands.
+
+<Aside type="danger" title="Golden Rule of Authorizations">
+Let's consider two users: `User1` and `User2`.
+
+1. If the level of `User1` is **equal to or lower** than that of `User2`, `User1` **will not be able** to sanction `User2` (an error will appear indicating the lack of permissions).
+2. `User1` **will only be able** to sanction `User2` if their level is **strictly higher**.
+</Aside>
+
+## How does it work?
+
+To declare authorizations in your configuration file, you must use the **role ID** or the **user ID** in quotes, followed by a colon (`:`) and the authorization level (a number).
+
+<Card title="Configuration example" icon="setting">
+```yaml
+authorizations:
+  '299564414997104192': 100 # Manuel777 (User ID)
+  '662355640987025485': 100 # Admin Role (Role ID)
+  '418587824107945994': 50  # Moderator Role (Role ID)
+  '633417290599104512': 10  # Helper Role (Role ID)
+```
+</Card>

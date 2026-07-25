@@ -1,0 +1,20 @@
+---
+title: Prefijo
+description: Configuración del prefijo para los comandos de texto del bot.
+---
+
+import { Card } from '@astrojs/starlight/components';
+
+El módulo de **Prefijo** (`prefix`) te permite definir el símbolo o carácter que antecederá a los comandos cuando se utilicen mediante mensajes de texto convencionales en tu servidor.
+
+> **Nota importante:** Aunque puedes configurar un prefijo para los comandos de texto, actualmente todos los comandos de La Cabra se pueden usar mediante **Slash Commands** (comandos de barra `/`) integrados de forma nativa en Discord. Recomendamos encarecidamente el uso de Slash Commands por su facilidad de uso, autocompletado y mejor integración con la plataforma.
+
+## ¿Cómo funciona?
+
+Para configurar el prefijo, simplemente define el símbolo o cadena de texto deseada entre comillas en tu archivo de configuración.
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+prefix: '-'
+```
+</Card>

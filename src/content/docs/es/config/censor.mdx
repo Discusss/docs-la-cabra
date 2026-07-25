@@ -1,0 +1,54 @@
+---
+title: Censor
+description: Configuración del módulo de censura para filtrar palabras malsonantes, enlaces, y phishing.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+El módulo **Censor** (`censor`) te permite mantener tu servidor limpio de palabras no deseadas, bloquear enlaces externos no autorizados y proteger a tus usuarios de enlaces de phishing.
+
+## Opciones Generales
+
+| Opción | Descripción |
+| :--- | :--- |
+| `maxLvl` | Nivel máximo de autorización al que se le aplicarán los filtros. |
+| `md` | `true` para enviar mensajes directos a los infractores. |
+| `ignoredRoles` | IDs de roles exentos de la censura. |
+| `ignoredChannels` | IDs de canales donde no actuará la censura. |
+
+## Filtros Específicos
+
+<CardGrid>
+  <Card title="Enlaces (Anti-Links)" icon="link">
+    - `antiLinksEnabled`: Activa/Desactiva el filtro.
+    - `antiLinksWhitelist`: Dominios permitidos (ej. `['youtube.com']`).
+    - `antiLinksOnlyDelete`: `true` para borrar silenciosamente, `false` para alertar en un canal.
+    - `antiLinksChannelId`: Canal de alertas (si `antiLinksOnlyDelete` es `false`).
+  </Card>
+  <Card title="Palabras (Word Blacklist)" icon="pen">
+    - `wordBlacklist`: Lista de palabras bloqueadas (separadas por comas).
+  </Card>
+  <Card title="Tokens (Token Blacklist)" icon="magnifier">
+    - `tokenBlacklist`: Fragmentos o enlaces bloqueados (ej. `['discord.gg/']`).
+  </Card>
+  <Card title="Phishing" icon="error">
+    - `antiPhishingEnabled`: Activa la base de datos inteligente de enlaces maliciosos.
+  </Card>
+</CardGrid>
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+censor:
+  maxLvl: 10
+  md: true
+  ignoredRoles: ['111111111111111111']
+  ignoredChannels: ['222222222222222222']
+  antiLinksEnabled: true
+  antiPhishingEnabled: true
+  antiLinksWhitelist: ['youtube.com', 'tenor.com']
+  antiLinksOnlyDelete: true
+  antiLinksChannelId: ''
+  wordBlacklist: ['palabrota1', 'insulto2']
+  tokenBlacklist: ['discord.gg/']
+```
+</Card>

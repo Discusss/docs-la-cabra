@@ -4,23 +4,24 @@
 - [ ] Estado
 - [ ] Tutoriales
 - [ ] Comandos
-- [ ] Configuración Intro
-- [ ] Configuración Autorizaciones
-- [ ] Configuración Censor
+- [x] Configuración Intro
+- [x] Configuración Autorizaciones
+- [x] Configuración Censor
 - [ ] Configuración Comandos Omitidos
-- [ ] Configuración Logs
-- [ ] Configuración Moderación
-- [ ] Configuración Prefijo
-- [ ] Configuración Spam
+- [x] Configuración Logs
+- [x] Configuración Moderación
+- [x] Configuración Prefijo
+- [x] Configuración Spam
+- [ ] Zonas horarias válidas
 
 
 ## Cosas nuevas
 
-- [ ] Moderación AntiBots (anuncios)
+- [x] Moderación AntiBots (anuncios)
 - [ ] Apelaciones y apelaciones múltiples (anuncios)
-- [ ] Módulo anti-spam y funcionalidad anti-raid (anuncios testers, la config está más arriba)
-- [ ] Canales de voz temporales (anuncios testers)
+- [x] Módulo anti-spam y funcionalidad anti-raid (anuncios testers, la config está más arriba)
+- [x] Canales de voz temporales (anuncios testers)
 - [ ] Tiempos compuestos en las duraciones (anuncios testers)
 - [ ] Comandos mmodinf, parche, pato, zorro (anuncios testers)
-- [ ] Mensajes personalizados por MD y sus variables (anuncios testers)
-- [ ] Mutes nativos de Discord
+- [x] Mensajes personalizados por MD y sus variables (anuncios testers)
+- [x] Mutes nativos de Discord

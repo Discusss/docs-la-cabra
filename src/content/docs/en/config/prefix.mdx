@@ -1,0 +1,20 @@
+---
+title: Prefix
+description: Configuration of the prefix for the bot's text commands.
+---
+
+import { Card } from '@astrojs/starlight/components';
+
+The **Prefix** module (`prefix`) allows you to define the symbol or character that will precede commands when used via conventional text messages on your server.
+
+> **Important note:** Although you can configure a prefix for text commands, currently all La Cabra commands can be used via **Slash Commands** (`/` commands) natively integrated in Discord. We strongly recommend using Slash Commands for their ease of use, autocomplete, and better platform integration.
+
+## How does it work?
+
+To configure the prefix, simply define the desired symbol or text string in quotes within your configuration file.
+
+<Card title="Configuration example" icon="setting">
+```yaml
+prefix: '-'
+```
+</Card>

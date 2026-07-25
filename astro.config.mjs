@@ -32,10 +32,10 @@ export default defineConfig({
 				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/SJqrGP7' },
 			],
 			sidebar: [
-				{ 
+				{
 					label: "Introduction",
 					slug: "intro/intro",
-					translations:{
+					translations: {
 						en: "Introduction",
 						es: "Introducción"
 					}
@@ -58,6 +58,17 @@ export default defineConfig({
 					},
 					items: [
 						{ slug: 'config/howto' },
+						{ slug: 'config/lang' },
+						{ slug: 'config/prefix' },
+						{ slug: 'config/authorizations' },
+						{ slug: 'config/commands' },
+						{ slug: 'config/appeals', badge: "Premium" },
+						{ slug: 'config/logs' },
+						{ slug: 'config/moderation' },
+						{ slug: 'config/censor' },
+						//{ slug: 'config/sentinel' },
+						{ slug: 'config/messages', badge: "Premium" },
+						{ slug: 'config/voice', badge: "Premium" },
 					],
 				},
 			],

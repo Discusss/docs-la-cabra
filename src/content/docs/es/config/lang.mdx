@@ -1,0 +1,26 @@
+---
+title: Idioma
+description: Configuración del idioma principal del bot.
+---
+
+import { Badge, Card } from '@astrojs/starlight/components';
+
+El módulo **Idioma** (`lang`) te permite configurar el idioma en el que La Cabra responderá a los comandos y mostrará sus mensajes, alertas e interfaces de texto en tu servidor.
+
+## Idiomas disponibles
+
+A continuación se muestra la lista de idiomas soportados actualmente por el bot. Para configurar un idioma, debes utilizar su código correspondiente en el archivo de configuración.
+
+| Código | Idioma | Estado |
+| :--- | :--- | :--- |
+| `es-ES` | Español (España) | <Badge text="Disponible" variant="success" size="medium" /> |
+
+<Card title="¿Más idiomas en el futuro?" icon="rocket">
+Estamos trabajando continuamente para añadir soporte a nuevos idiomas y hacer que La Cabra sea accesible para más comunidades. Por el momento, el español (`es-ES`) es el único idioma con soporte oficial completo.
+</Card>
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+lang: 'es-ES'
+```
+</Card>

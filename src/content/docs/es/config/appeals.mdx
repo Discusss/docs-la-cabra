@@ -1,0 +1,45 @@
+---
+title: Apelaciones
+description: Configuración del módulo de apelaciones para permitir a los usuarios sancionados solicitar una revisión.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+El módulo de **Apelaciones** (`appeals`) es una característica <Badge text="Premium" variant="success" /> que permite a los usuarios que han sido sancionados en tu servidor solicitar una revisión de su caso. Esto es útil para mantener una moderación justa.
+
+<Aside type="tip">
+Recomendamos crear un canal privado exclusivamente para recibir las apelaciones, donde solo los moderadores tengan acceso y puedan deliberar en privado.
+</Aside>
+
+## Opciones de configuración
+
+A continuación se detallan las opciones disponibles para personalizar este módulo:
+
+| Opción | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `enabled` | `Boolean` | `true` si quieres que el bot active el módulo de Apelaciones, `false` de lo contrario. |
+| `channel` | `String` | La ID del canal donde se enviarán las apelaciones (entre comillas). |
+| `waitTime` | `Number` | El tiempo que el usuario debe esperar para apelar una sanción (en segundos). |
+| `attempts` | `Number` | El número de intentos que tiene el usuario para apelar su sanción (por defecto 1, máximo 10). |
+| `onBan` | `Boolean` | `true` si quieres que los usuarios baneados permanentemente puedan apelar, `false` de lo contrario. |
+| `onWarn` | `Boolean` | `true` si quieres que los usuarios advertidos puedan apelar, `false` de lo contrario. |
+| `onMute` | `Boolean` | `true` si quieres que los usuarios muteados permanentemente puedan apelar, `false` de lo contrario. |
+| `interactLvl` | `Number` | El nivel de autorización mínimo para interactuar con el módulo (aprobar o rechazar apelaciones). |
+
+<Aside type="note" title="Múltiples apelaciones">
+Si configuras `attempts` con un valor mayor a 1, ten en cuenta que entre cada intento de apelación el usuario deberá volver a esperar el tiempo establecido en la propiedad `waitTime`. Puedes habilitar hasta un máximo de 10 intentos.
+</Aside>
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+appeals:
+  enabled: true
+  channel: '123456789012345678'
+  waitTime: 86400
+  attempts: 2
+  onBan: true
+  onWarn: false
+  onMute: true
+  interactLvl: 50
+```
+</Card>

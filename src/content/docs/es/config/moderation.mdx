@@ -1,0 +1,108 @@
+---
+title: Moderación
+description: Configuración del módulo de moderación, incluyendo antispam y antibots.
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+El módulo de **Moderación** (`moderation`) se encarga de aplicar diferentes protecciones automáticas al servidor para prevenir ataques o comportamientos indeseados, como el spam, flood, raids y bots maliciosos.
+
+<Aside type="danger">
+Este módulo aún está en **desarrollo**, por lo que puede contener errores o no funcionar de la manera esperada. Úsalo con precaución.
+</Aside>
+
+## Opciones Generales
+
+| Opción | Descripción |
+| :--- | :--- |
+| `muteRoleId` | La ID del rol para los muteos. Si no se especifica, se intentará deducir automáticamente. |
+| `useNativeMute` | `true` para usar el sistema de aislamientos nativo de Discord (Time Out) si es posible. |
+
+## Antispam (`antiSpam`)
+
+Previene que los usuarios envíen demasiados mensajes en poco tiempo o realicen ataques al servidor.
+
+<CardGrid>
+  <Card title="General" icon="setting">
+    - `enabled`: `true` para activar el módulo de antispam.
+    - `maxLvl`: Nivel máximo de autorización afectado.
+    - `ignoredUsers` / `ignoredChannels` / `ignoredRoles`: Listas de IDs ignoradas por el filtro.
+    - `deleteMessages`: `true` para borrar mensajes de spam.
+    - `muteDuration` / `banDuration`: Segundos de sanción (`0` para permanente).
+  </Card>
+  <Card title="Flood" icon="error">
+    - `interval`: Intervalo (en segundos) para considerar flood.
+    - `warn` / `mute` / `ban`: Número de mensajes repetidos para aplicar cada sanción.
+  </Card>
+  <Card title="Mensajes Duplicados" icon="document">
+    - `interval`: Intervalo (en segundos) para mensajes duplicados.
+    - `warn` / `mute` / `ban`: Número de mensajes duplicados para aplicar sanción.
+  </Card>
+  <Card title="Raid" icon="warning">
+    - `interval`: Intervalo de tiempo para considerar un raid.
+    - `count`: Mensajes repetidos por cualquier persona.
+    - `lockChannel`: `true` para bloquear el canal temporalmente.
+    - `channelLockDuration`: Segundos para auto-desbloqueo.
+    - `ban`: `true` para banear a los participantes.
+    - `message`: Mensaje a enviar al detectar el raid.
+  </Card>
+  <Card title="Emojis" icon="star">
+    - `max`: Número máximo de emojis permitidos por mensaje antes de considerarse spam.
+  </Card>
+</CardGrid>
+
+## Antibots (`antibots`)
+
+Aplica una sanción a cualquier usuario o bot no deseado que envíe un mensaje en un "canal trampa".
+
+| Opción | Descripción |
+| :--- | :--- |
+| `channel` | La ID del canal trampa. |
+| `verifyAction` | `true` para pedir verificación antes de sancionar, `false` para sanción directa. |
+| `sanctionType` | Tipo de sanción: `none`, `warn`, `mute`, `ban`, o `kick`. |
+| `sanctionDuration` | Duración de la sanción (en segundos), `0` para permanente. |
+| `sanctionReason` | Razón de la sanción. |
+| `ignoredRoles` | Roles que el bot ignorará para esta sanción. |
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+moderation:
+  muteRoleId: '123123123123123123'
+  useNativeMute: true
+  antispam:
+    enabled: true
+    maxLvl: 50
+    ignoredUsers: []
+    ignoredChannels: []
+    ignoredRoles: []
+    deleteMessages: true
+    muteDuration: 3600
+    banDuration: 0
+    flood:
+      interval: 5
+      warn: 4
+      mute: 6
+      ban: 10
+    duplicatedMessages:
+      interval: 10
+      warn: 3
+      mute: 5
+      ban: 8
+    raid:
+      interval: 10
+      count: 10
+      lockChannel: true
+      channelLockDuration: 3600
+      ban: true
+      message: '🚨 Raid detectado, canal bloqueado temporalmente.'
+    emojis:
+      max: 10
+  antibots:
+    channel: '987654321012345678'
+    verifyAction: false
+    sanctionType: 'ban'
+    sanctionDuration: 0
+    sanctionReason: 'Bot no autorizado en canal trampa'
+    ignoredRoles: []
+```
+</Card>

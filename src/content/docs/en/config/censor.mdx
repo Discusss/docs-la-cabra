@@ -1,0 +1,54 @@
+---
+title: Censor
+description: Configuration of the censor module to filter bad words, links, and phishing.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+The **Censor** module (`censor`) allows you to keep your server clean from unwanted words, block unauthorized external links, and protect your users from phishing links.
+
+## General Options
+
+| Option | Description |
+| :--- | :--- |
+| `maxLvl` | Maximum authorization level to which the filters will be applied. |
+| `md` | `true` to send direct messages to offenders. |
+| `ignoredRoles` | IDs of roles exempt from censorship. |
+| `ignoredChannels` | IDs of channels where censorship will not act. |
+
+## Specific Filters
+
+<CardGrid>
+  <Card title="Links (Anti-Links)" icon="link">
+    - `antiLinksEnabled`: Enables/Disables the filter.
+    - `antiLinksWhitelist`: Allowed domains (e.g. `['youtube.com']`).
+    - `antiLinksOnlyDelete`: `true` to delete silently, `false` to alert in a channel.
+    - `antiLinksChannelId`: Alerts channel (if `antiLinksOnlyDelete` is `false`).
+  </Card>
+  <Card title="Words (Word Blacklist)" icon="pen">
+    - `wordBlacklist`: List of blocked words (separated by commas).
+  </Card>
+  <Card title="Tokens (Token Blacklist)" icon="magnifier">
+    - `tokenBlacklist`: Blocked fragments or links (e.g. `['discord.gg/']`).
+  </Card>
+  <Card title="Phishing" icon="error">
+    - `antiPhishingEnabled`: Enables the intelligent database of malicious links.
+  </Card>
+</CardGrid>
+
+<Card title="Configuration example" icon="setting">
+```yaml
+censor:
+  maxLvl: 10
+  md: true
+  ignoredRoles: ['111111111111111111']
+  ignoredChannels: ['222222222222222222']
+  antiLinksEnabled: true
+  antiPhishingEnabled: true
+  antiLinksWhitelist: ['youtube.com', 'tenor.com']
+  antiLinksOnlyDelete: true
+  antiLinksChannelId: ''
+  wordBlacklist: ['badword1', 'insult2']
+  tokenBlacklist: ['discord.gg/']
+```
+</Card>

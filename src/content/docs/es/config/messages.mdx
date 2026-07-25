@@ -1,0 +1,55 @@
+---
+title: Mensajes Personalizados
+description: Personaliza los mensajes directos enviados a los usuarios cuando se aplican sanciones.
+---
+
+import { Aside, Card, Badge, CardGrid } from '@astrojs/starlight/components';
+
+El módulo de **Mensajes Personalizados** (`messages`) es una característica <Badge text="Premium" variant="success" /> que te permite cambiar los textos por defecto que envía LA CABRA a los usuarios por mensaje directo (MD) cuando son sancionados.
+
+## Textos personalizables
+
+<CardGrid>
+  <Card title="Sanciones Permanentes" icon="error">
+    - `ban`: Mensaje para baneo permanente.
+    - `mute`: Mensaje para muteo permanente.
+    - `kick`: Mensaje para expulsiones.
+  </Card>
+  <Card title="Sanciones Temporales" icon="clock">
+    - `tempBan`: Mensaje para baneos con tiempo límite.
+    - `tempMute`: Mensaje para muteos temporales.
+    - `warn`: Mensaje para advertencias.
+  </Card>
+</CardGrid>
+
+## Variables disponibles
+
+Puedes usar las siguientes variables en tus mensajes personalizados. El bot las sustituirá automáticamente por la información correspondiente al aplicar la sanción:
+
+| Variable | Descripción |
+| :--- | :--- |
+| `{server}` | El nombre del servidor. |
+| `{server.id}` | La ID del servidor. |
+| `{user}` | El nombre del usuario que ha recibido la sanción. |
+| `{user.id}` | La ID del usuario que ha recibido la sanción. |
+| `{moderator}` | El nombre del moderador que ha dado la sanción. |
+| `{moderator.id}` | La ID del moderador que ha dado la sanción. |
+| `{reason}` | La razón de la sanción (si no se proporciona una, se mostrará: `N/A`). |
+| `{time}` | Cuándo expira la sanción si esta es temporal (si es permanente, se mostrará: `N/A`). |
+
+<Aside type="note">
+Para activar este módulo, debes asegurar que `enabled` esté en `true`. Si lo desactivas, se usarán los mensajes estándar de La Cabra.
+</Aside>
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+messages:
+  enabled: true
+  warn: 'Has recibido una advertencia en el servidor por incumplir las normas.'
+  ban: 'Has sido baneado permanentemente del servidor.'
+  tempBan: 'Has sido baneado temporalmente del servidor. Podrás volver cuando acabe la sanción.'
+  mute: 'Has sido silenciado permanentemente.'
+  tempMute: 'Has sido silenciado temporalmente, reflexiona sobre tus acciones.'
+  kick: 'Has sido expulsado del servidor. Puedes volver, pero ten cuidado la próxima vez.'
+```
+</Card>

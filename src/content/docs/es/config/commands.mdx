@@ -1,0 +1,38 @@
+---
+title: Comandos
+description: Configuración del nivel de autorización requerido para utilizar los comandos del bot.
+---
+
+import { Aside, Card } from '@astrojs/starlight/components';
+
+El módulo de **Comandos** (`commands`) te permite especificar el nivel mínimo de autorización necesario para poder ejecutar cada comando de La Cabra.
+
+<Aside type="note">
+Esto funciona en conjunto con el módulo de [Autorizaciones](/es/config/authorizations). Al definir un nivel para un comando, solo aquellos usuarios o roles que posean un nivel **igual o superior** al especificado podrán utilizarlo.
+</Aside>
+
+## ¿Cómo funciona?
+
+Para configurar los permisos, debes indicar el nombre del comando en tu archivo de configuración, seguido de dos puntos (`:`) y el nivel de autorización requerido. 
+
+- Si especificas `0`, cualquier usuario podrá utilizar el comando.
+- Si especificas un número mayor, requerirá un nivel asignado equivalente o superior.
+
+<Aside type="tip">
+Cuando generas el archivo de configuración desde el bot, aparecerá automáticamente la lista completa con todos los comandos disponibles y sus niveles por defecto, por lo que no tendrás que escribirlos manualmente.
+</Aside>
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+commands: 
+  iniciar: 0
+  infrs: 100
+  link: 100
+  clear: 100
+  # ...
+  # (Resto de comandos generados automáticamente)
+  # ...
+  cabra: 100
+  perro: 50
+```
+</Card>

@@ -1,0 +1,45 @@
+---
+title: Appeals
+description: Configuration of the appeals module to allow sanctioned users to request a review.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+The **Appeals** module (`appeals`) is a <Badge text="Premium" variant="success" /> feature that allows users who have been sanctioned on your server to request a review of their case. This is useful for maintaining fair moderation.
+
+<Aside type="tip">
+We recommend creating a private channel exclusively for receiving appeals, where only moderators have access and can deliberate in private.
+</Aside>
+
+## Configuration options
+
+The options available to customize this module are detailed below:
+
+| Option | Type | Description |
+| :--- | :--- | :--- |
+| `enabled` | `Boolean` | `true` if you want the bot to activate the Appeals module, `false` otherwise. |
+| `channel` | `String` | The ID of the channel where appeals will be sent (in quotes). |
+| `waitTime` | `Number` | The time the user must wait to appeal a sanction (in seconds). |
+| `attempts` | `Number` | The number of attempts the user has to appeal their sanction (default 1, maximum 10). |
+| `onBan` | `Boolean` | `true` if you want permanently banned users to be able to appeal, `false` otherwise. |
+| `onWarn` | `Boolean` | `true` if you want warned users to be able to appeal, `false` otherwise. |
+| `onMute` | `Boolean` | `true` if you want permanently muted users to be able to appeal, `false` otherwise. |
+| `interactLvl` | `Number` | The minimum authorization level to interact with the module (approve or reject appeals). |
+
+<Aside type="note" title="Multiple appeals">
+If you configure `attempts` with a value greater than 1, keep in mind that between each appeal attempt, the user will have to wait the time established in the `waitTime` property again. You can enable up to a maximum of 10 attempts.
+</Aside>
+
+<Card title="Configuration example" icon="setting">
+```yaml
+appeals:
+  enabled: true
+  channel: '123456789012345678'
+  waitTime: 86400
+  attempts: 2
+  onBan: true
+  onWarn: false
+  onMute: true
+  interactLvl: 50
+```
+</Card>

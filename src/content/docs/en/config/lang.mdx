@@ -1,0 +1,26 @@
+---
+title: Language
+description: Configuration for the bot's primary language.
+---
+
+import { Badge, Card } from '@astrojs/starlight/components';
+
+The **Language** module (`lang`) allows you to configure the language in which La Cabra will respond to commands and display its messages, alerts, and text interfaces on your server.
+
+## Available languages
+
+Below is the list of languages currently supported by the bot. To configure a language, you must use its corresponding code in the configuration file.
+
+| Code | Language | Status |
+| :--- | :--- | :--- |
+| `es-ES` | Spanish (Spain) | <Badge text="Available" variant="success" size="medium" /> |
+
+<Card title="More languages in the future?" icon="rocket">
+We are continuously working to add support for new languages and make La Cabra accessible to more communities. For now, Spanish (`es-ES`) is the only language with full official support.
+</Card>
+
+<Card title="Configuration example" icon="setting">
+```yaml
+lang: 'es-ES'
+```
+</Card>

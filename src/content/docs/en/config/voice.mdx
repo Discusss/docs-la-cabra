@@ -1,0 +1,52 @@
+---
+title: Temporary Voice Channels
+description: Allows your users to create and manage their own voice channels dynamically.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+The **Temporary Voice Channels** module (`voice`) is a <Badge text="Premium" variant="success" /> feature that automates the creation of voice channels.
+
+<Aside type="tip">
+**Usage flow:** A user joins a base channel (*Voice Generator*) and the bot automatically creates a new temporary channel and moves the user there, giving them administration permissions over it. When everyone leaves, the channel is deleted.
+</Aside>
+
+## Configuration options
+
+| Option | Description |
+| :--- | :--- |
+| `channelId` | The ID of the base channel (*Voice Generator*). |
+| `categoryId` | The ID of the category where the temporary channels will appear. |
+| `maxChannelSize` | Maximum limit of slots per channel (`0` for unlimited). |
+| `defaultChannelSize` | Default slots upon creation (`>= 1`). |
+| `channelName` | Name template. You can use `{user}` for the creator's name. |
+| `maxChannels` | Global limit of channels created simultaneously on the server. |
+| `maxLvl` | Protection level to prevent the channel owner from kicking moderators. |
+| `permissions` | List of permissions the owner will have over their channel (see below). |
+
+### Available permissions
+
+By default, the creator of the temporary channel has all permissions over their own channel. If you want to limit them, you can specify a list with the following permissions in the `permissions` property:
+
+| Permission | Description |
+| :--- | :--- |
+| `setName` | Allows changing the name of the voice channel. |
+| `setBitrate` | Allows changing the channel's bitrate (audio quality). |
+| `setNsfw` | Allows marking or unmarking the channel as NSFW (adult content). |
+| `setUserLimit` | Allows setting the maximum number of users who can join the channel. |
+| `kickMembers` | Allows kicking other users from the temporary voice channel. |
+| `blockMembers` | Allows blocking access (denying them from joining) to specific users from the channel. |
+
+<Card title="Configuration example" icon="setting">
+```yaml
+voice:
+  channelId: '555555555555555555'
+  categoryId: '666666666666666666'
+  maxChannelSize: 0
+  defaultChannelSize: 5
+  channelName: '{user}''s Channel'
+  maxChannels: 20
+  maxLvl: 50
+  permissions: ['setName', 'setBitrate', 'setNsfw', 'setUserLimit', 'kickMembers', 'blockMembers']
+```
+</Card>

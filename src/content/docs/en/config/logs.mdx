@@ -1,0 +1,43 @@
+---
+title: Logs
+description: Configuration of the logs module to audit events and actions on the server.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+The **Logs** module (`logs`) allows you to keep an audit of everything that happens on your server. You can configure to which channels each type of event will be sent and ignore certain users, channels, or roles.
+
+<Aside type="caution">
+Remember that in options that accept multiple IDs (lists with `[]`), you must separate each ID with commas and always enclose them in single quotes.
+</Aside>
+
+## Configuration options
+
+| Option | Description |
+| :--- | :--- |
+| `ignoredUsers` | The ID or IDs of the users whose events the bot will not log. |
+| `ignoredChannels` | The ID or IDs of the channels whose events the bot will not log. |
+| `ignoredRoles` | The ID or IDs of the roles whose events the bot will not log. |
+| `messages` | The ID or IDs of the channels where message events (deleted, edited, etc.) will be sent. |
+| `joinsAndLeaves` | The ID or IDs of the channels where member join and leave events will be sent. |
+| `actions` | The ID or IDs of the channels where events of LA CABRA commands used will be sent. |
+| `voice` | The ID or IDs of the channels where voice events will be sent. |
+| `censor` | The ID or IDs of the channels where censor module events will be sent. |
+| `server` | The ID or IDs of the channels where server events (role changes, etc.) will be sent. |
+| `autoMod` | <Badge text="Premium" variant="success" /> The ID or IDs of the AutoMod event channels. |
+
+<Card title="Configuration example" icon="setting">
+```yaml
+logs:
+  ignoredUsers: ['987654321098765432']
+  ignoredChannels: ['112233445566778899']
+  ignoredRoles: ['223344556677889900']
+  messages: ['334455667788990011']
+  joinsAndLeaves: ['445566778899001122']
+  actions: ['556677889900112233']
+  voice: ['667788990011223344']
+  censor: ['778899001122334455']
+  server: ['889900112233445566']
+  autoMod: ['990011223344556677']
+```
+</Card>

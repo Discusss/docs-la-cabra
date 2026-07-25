@@ -1,0 +1,41 @@
+---
+title: Sentinel
+description: Configuración del módulo Sentinel para la detección avanzada de discurso de odio.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+El módulo **Sentinel** (`sentinel`) es una característica <Badge text="Premium" variant="success" /> que utiliza **Inteligencia Artificial** para detectar y filtrar el discurso de odio (Hate Speech) en tu servidor, ayudando a mantener una comunidad segura y respetuosa.
+
+## Opciones de configuración
+
+| Opción | Descripción |
+| :--- | :--- |
+| `enabled` | `true` si quieres que el bot active Sentinel. |
+| `maxLvl` | El nivel máximo de autorización afectado por el filtro. |
+| `threshold` | El umbral de detección (0.0 a 1.0). A mayor valor, más difícil será que se active. |
+| `deleteMessages` | `true` para borrar los mensajes ofensivos automáticamente. |
+| `validationChannel` | ID del canal para validación manual y entrenamiento del sistema. |
+| `validationLvl` | Nivel mínimo para poder usar la validación manual. |
+| `ignoredRoles` | IDs de roles que el bot no analizará. |
+| `ignoredChannels` | IDs de canales que el bot no analizará. |
+| `language` | Idioma de detección principal (ej. `"es"`). |
+
+<Aside type="tip" title="Validación y Umbrales">
+Es recomendable empezar con un `threshold` alto (ej. `0.85`) e ir bajándolo gradualmente si ves que pasan demasiados mensajes ofensivos, mientras usas el `validationChannel` para ajustar la precisión del bot de forma manual.
+</Aside>
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+sentinel:
+  enabled: true
+  maxLvl: 20
+  threshold: 0.85
+  deleteMessages: true
+  validationChannel: '333333333333333333'
+  validationLvl: 50
+  ignoredRoles: []
+  ignoredChannels: ['444444444444444444']
+  language: "es"
+```
+</Card>

@@ -1,0 +1,108 @@
+---
+title: Moderation
+description: Configuration of the moderation module, including antispam and antibots.
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+The **Moderation** module (`moderation`) is responsible for applying different automatic protections to the server to prevent attacks or unwanted behaviors, such as spam, flood, raids, and malicious bots.
+
+<Aside type="danger">
+This module is still in **development**, so it may contain errors or not work as expected. Use it with caution.
+</Aside>
+
+## General Options
+
+| Option | Description |
+| :--- | :--- |
+| `muteRoleId` | The ID of the role for mutes. If not specified, it will try to deduce it automatically. |
+| `useNativeMute` | `true` to use Discord's native isolation system (Time Out) if possible. |
+
+## Antispam (`antiSpam`)
+
+Prevents users from sending too many messages in a short time or carrying out attacks on the server.
+
+<CardGrid>
+  <Card title="General" icon="setting">
+    - `enabled`: `true` to activate the antispam module.
+    - `maxLvl`: Maximum authorization level affected.
+    - `ignoredUsers` / `ignoredChannels` / `ignoredRoles`: Lists of IDs ignored by the filter.
+    - `deleteMessages`: `true` to delete spam messages.
+    - `muteDuration` / `banDuration`: Sanction duration in seconds (`0` for permanent).
+  </Card>
+  <Card title="Flood" icon="error">
+    - `interval`: Interval (in seconds) to consider it flood.
+    - `warn` / `mute` / `ban`: Number of repeated messages to apply each sanction.
+  </Card>
+  <Card title="Duplicated Messages" icon="document">
+    - `interval`: Interval (in seconds) for duplicated messages.
+    - `warn` / `mute` / `ban`: Number of duplicated messages to apply a sanction.
+  </Card>
+  <Card title="Raid" icon="warning">
+    - `interval`: Time interval to consider it a raid.
+    - `count`: Repeated messages by any person.
+    - `lockChannel`: `true` to temporarily lock the channel.
+    - `channelLockDuration`: Seconds for auto-unlock.
+    - `ban`: `true` to ban participants.
+    - `message`: Message to send when detecting the raid.
+  </Card>
+  <Card title="Emojis" icon="star">
+    - `max`: Maximum number of emojis allowed per message before being considered spam.
+  </Card>
+</CardGrid>
+
+## Antibots (`antibots`)
+
+Applies a sanction to any unwanted user or bot that sends a message in a "trap channel".
+
+| Option | Description |
+| :--- | :--- |
+| `channel` | The ID of the trap channel. |
+| `verifyAction` | `true` to request verification before sanctioning, `false` for direct sanction. |
+| `sanctionType` | Type of sanction: `none`, `warn`, `mute`, `ban`, or `kick`. |
+| `sanctionDuration` | Sanction duration (in seconds), `0` for permanent. |
+| `sanctionReason` | Reason for the sanction. |
+| `ignoredRoles` | Roles that the bot will ignore for this sanction. |
+
+<Card title="Configuration example" icon="setting">
+```yaml
+moderation:
+  muteRoleId: '123123123123123123'
+  useNativeMute: true
+  antispam:
+    enabled: true
+    maxLvl: 50
+    ignoredUsers: []
+    ignoredChannels: []
+    ignoredRoles: []
+    deleteMessages: true
+    muteDuration: 3600
+    banDuration: 0
+    flood:
+      interval: 5
+      warn: 4
+      mute: 6
+      ban: 10
+    duplicatedMessages:
+      interval: 10
+      warn: 3
+      mute: 5
+      ban: 8
+    raid:
+      interval: 10
+      count: 10
+      lockChannel: true
+      channelLockDuration: 3600
+      ban: true
+      message: '🚨 Raid detected, channel temporarily locked.'
+    emojis:
+      max: 10
+  antibots:
+    channel: '987654321012345678'
+    verifyAction: false
+    sanctionType: 'ban'
+    sanctionDuration: 0
+    sanctionReason: 'Unauthorized bot in trap channel'
+    ignoredRoles: []
+```
+</Card>

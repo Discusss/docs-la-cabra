@@ -1,0 +1,52 @@
+---
+title: Canales de Voz Temporales
+description: Permite a tus usuarios crear y gestionar sus propios canales de voz de manera dinámica.
+---
+
+import { Aside, Card, Badge } from '@astrojs/starlight/components';
+
+El módulo de **Canales de Voz Temporales** (`voice`) es una característica <Badge text="Premium" variant="success" /> que automatiza la creación de canales de voz.
+
+<Aside type="tip">
+**Flujo de uso:** Un usuario entra a un canal base (*Voice Generator*) y automáticamente el bot crea un nuevo canal temporal y mueve al usuario ahí, dándole permisos de administración sobre el mismo. Al salir todos, el canal se borra.
+</Aside>
+
+## Opciones de configuración
+
+| Opción | Descripción |
+| :--- | :--- |
+| `channelId` | La ID del canal base (*Voice Generator*). |
+| `categoryId` | La ID de la categoría donde aparecerán los canales temporales. |
+| `maxChannelSize` | Límite máximo de huecos por canal (`0` para ilimitado). |
+| `defaultChannelSize` | Huecos por defecto al crearse (`>= 1`). |
+| `channelName` | Plantilla del nombre. Puedes usar `{user}` para el nombre del creador. |
+| `maxChannels` | Límite global de canales creados simultáneamente en el servidor. |
+| `maxLvl` | Nivel de protección para evitar que el dueño del canal expulse a moderadores. |
+| `permissions` | Lista de permisos que tendrá el dueño sobre su canal (ver abajo). |
+
+### Permisos disponibles
+
+Por defecto, el creador del canal temporal tiene todos los permisos sobre su propio canal. Si quieres limitarlos, puedes especificar una lista con los siguientes permisos en la propiedad `permissions`:
+
+| Permiso | Descripción |
+| :--- | :--- |
+| `setName` | Permite cambiar el nombre del canal de voz. |
+| `setBitrate` | Permite cambiar el bitrate del canal (calidad de audio). |
+| `setNsfw` | Permite marcar o desmarcar el canal como NSFW (contenido para adultos). |
+| `setUserLimit` | Permite establecer el número máximo de usuarios que pueden unirse al canal. |
+| `kickMembers` | Permite expulsar a otros usuarios del canal de voz temporal. |
+| `blockMembers` | Permite bloquear el acceso (denegar que se unan) a usuarios concretos al canal. |
+
+<Card title="Ejemplo de configuración" icon="setting">
+```yaml
+voice:
+  channelId: '555555555555555555'
+  categoryId: '666666666666666666'
+  maxChannelSize: 0
+  defaultChannelSize: 5
+  channelName: 'Canal de {user}'
+  maxChannels: 20
+  maxLvl: 50
+  permissions: ['setName', 'setBitrate', 'setNsfw', 'setUserLimit', 'kickMembers', 'blockMembers']
+```
+</Card>

@@ -1,0 +1,55 @@
+---
+title: Custom Messages
+description: Customize the direct messages sent to users when sanctions are applied.
+---
+
+import { Aside, Card, Badge, CardGrid } from '@astrojs/starlight/components';
+
+The **Custom Messages** module (`messages`) is a <Badge text="Premium" variant="success" /> feature that allows you to change the default texts LA CABRA sends to users via direct message (DM) when they are sanctioned.
+
+## Customizable texts
+
+<CardGrid>
+  <Card title="Permanent Sanctions" icon="error">
+    - `ban`: Message for permanent ban.
+    - `mute`: Message for permanent mute.
+    - `kick`: Message for kicks.
+  </Card>
+  <Card title="Temporary Sanctions" icon="clock">
+    - `tempBan`: Message for bans with a time limit.
+    - `tempMute`: Message for temporary mutes.
+    - `warn`: Message for warnings.
+  </Card>
+</CardGrid>
+
+## Available variables
+
+You can use the following variables in your custom messages. The bot will automatically replace them with the corresponding information when applying the sanction:
+
+| Variable | Description |
+| :--- | :--- |
+| `{server}` | The server's name. |
+| `{server.id}` | The server's ID. |
+| `{user}` | The name of the user who received the sanction. |
+| `{user.id}` | The ID of the user who received the sanction. |
+| `{moderator}` | The name of the moderator who gave the sanction. |
+| `{moderator.id}` | The ID of the moderator who gave the sanction. |
+| `{reason}` | The reason for the sanction (if none is provided, it will show: `N/A`). |
+| `{time}` | When the sanction expires if it is temporary (if permanent, it will show: `N/A`). |
+
+<Aside type="note">
+To activate this module, you must ensure that `enabled` is set to `true`. If you disable it, La Cabra's standard messages will be used.
+</Aside>
+
+<Card title="Configuration example" icon="setting">
+```yaml
+messages:
+  enabled: true
+  warn: 'You have received a warning on the server for breaking the rules.'
+  ban: 'You have been permanently banned from the server.'
+  tempBan: 'You have been temporarily banned from the server. You can return when the sanction ends.'
+  mute: 'You have been permanently muted.'
+  tempMute: 'You have been temporarily muted, please reflect on your actions.'
+  kick: 'You have been kicked from the server. You can return, but be careful next time.'
+```
+</Card>
