@@ -18,7 +18,7 @@
 ## Cosas nuevas
 
 - [x] Moderación AntiBots (anuncios)
-- [ ] Apelaciones y apelaciones múltiples (anuncios)
+- [x] Apelaciones y apelaciones múltiples (anuncios)
 - [x] Módulo anti-spam y funcionalidad anti-raid (anuncios testers, la config está más arriba)
 - [x] Canales de voz temporales (anuncios testers)
 - [x] Tiempos compuestos en las duraciones (anuncios testers)
