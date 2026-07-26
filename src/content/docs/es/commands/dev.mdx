@@ -1,0 +1,337 @@
+---
+title: Comandos de Desarrollo
+description: Lista y documentación de los comandos de desarrollo de La Cabra (solo desarrolladores).
+---
+
+import { Badge, Aside, Tabs, TabItem, Icon } from '@astrojs/starlight/components';
+
+Esta sección detalla todos los comandos disponibles en esta categoría.
+
+<Aside type="caution">
+  Ten en cuenta que los comandos pueden ser potentes. Asegúrate de configurar correctamente los permisos en tu servidor para evitar que usuarios no autorizados puedan usarlos.
+</Aside>
+
+## Lista de comandos
+
+### `/acortar`
+
+Acorta un enlace y ponerlo en el dominio \
+
+**Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /acortar
+
+    # Con el prefijo configurado:
+    -acortar
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/config`
+
+Ejecutar acciones sobre la configuración de un servidor
+
+**Alias:** `cfg`, `conf`, `configs` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /config
+
+    # Con el prefijo configurado:
+    -config
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/debug`
+
+Muestra información sobre el estado de la JVM
+
+**Alias:** `dbg`, `jvm`, `debuginfo`, `dinfo` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /debug
+
+    # Con el prefijo configurado:
+    -debug
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/devbadge`
+
+Gestionar las insignias de los usuarios
+
+**Alias:** `dbadge`, `dev-badge`, `devb` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /devbadge
+
+    # Con el prefijo configurado:
+    -devbadge
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/devexportar`
+
+Exportar la configuración de un servidor dada su ID
+
+**Alias:** `devexport`, `exportar`, `devexp`, `exp` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /devexportar
+
+    # Con el prefijo configurado:
+    -devexportar
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/deviniciar`
+
+Reiniciar la configuración de un servidor dada su ID
+
+**Alias:** `devinit`, `iniciar` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /deviniciar
+
+    # Con el prefijo configurado:
+    -deviniciar
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/devinvite`
+
+Genera una invitación para un servidor dada su ID
+
+**Alias:** `devinv`, `devi`, `invitacion`, `inv`, `i`, `getinv`, `getinvite`, `geti` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /devinvite
+
+    # Con el prefijo configurado:
+    -devinvite
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/disable`
+
+Desactiva un comando de manera global
+
+**Alias:** `d`, `desactivar`, `dis` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /disable
+
+    # Con el prefijo configurado:
+    -disable
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/disabled`
+
+Muestra una lista de comandos deshabilitados
+
+**Alias:** `ds`, `desactivados`, `diss` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /disabled
+
+    # Con el prefijo configurado:
+    -disabled
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/enable`
+
+Activa un comando de manera global
+
+**Alias:** `activar`, `act` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /enable
+
+    # Con el prefijo configurado:
+    -enable
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/eval`
+
+Ejecuta código dentro del entorno del bot
+
+**Alias:** `$$"$eval`, `evaluate`, `evl`, `e` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /eval
+
+    # Con el prefijo configurado:
+    -eval
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/premium`
+
+Gestionar el estado premium de los servidores.
+
+**Alias:** `p`, `pr`, `premium-status` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /premium
+
+    # Con el prefijo configurado:
+    -premium
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/services`
+
+Gestionar y monitorear los servicios del bot.
+
+**Alias:** `servicios`, `service`, `svc` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /services
+
+    # Con el prefijo configurado:
+    -services
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/whitelist`
+
+Gestionar la lista blanca de servidores permitidos.
+
+**Alias:** `w`, `wl`, `white-list`, `whitelisted` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /whitelist
+
+    # Con el prefijo configurado:
+    -whitelist
+    ```
+  </TabItem>
+</Tabs>
+
+---
+

@@ -80,6 +80,16 @@ export default defineConfig({
 						{ slug: 'config/voice', badge: "Premium" },
 					],
 				},
+				{
+					label: 'Extra',
+					translations: {
+						en: 'Extra',
+						es: 'Extra'
+					},
+					items: [
+						{ slug: 'extra/badges' },
+					],
+				},
 			],
 		}),
 	],

@@ -1,0 +1,42 @@
+---
+title: Badges e Insignias
+description: Explicación de las insignias (badges) de usuario en La Cabra.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Las **badges** (o insignias) son reconocimientos especiales que se otorgan a ciertos usuarios de La Cabra por su contribución, apoyo o rol dentro del proyecto. Estas insignias son visibles al utilizar el comando `/info` (o `/badges`) sobre el perfil de un usuario.
+
+A continuación, se detallan todas las badges existentes y lo que significan:
+
+<CardGrid stagger>
+  <Card title="Donador" icon="star">
+    ![Badge Donador](../../../../assets/badge_donador.webp)
+    <br/>
+    Badge exclusiva para quienes han aportado su granito de arena donando una cantidad al bot. 
+  </Card>
+
+  <Card title="Tester" icon="approve-check">
+    ![Badge Tester](../../../../assets/badge_tester.webp)
+    <br/>
+    Otorgada a los miembros del equipo de Testers por participar activamente reportando fallos y sugerencias.
+  </Card>
+
+  <Card title="Soporte" icon="information">
+    ![Badge Soporte](../../../../assets/badge_soporte.webp)
+    <br/>
+    Exclusiva para aquellos usuarios que forman parte del equipo de Soporte de La Cabra.
+  </Card>
+
+  <Card title="Desarrollador" icon="laptop">
+    ![Badge Desarrollador](../../../../assets/badge_dev.webp)
+    <br/>
+    La tienen únicamente aquellos que trabajan de forma directa programando y desarrollando el bot.
+  </Card>
+
+  <Card title="Diseñador" icon="pencil">
+    ![Badge Diseñador](../../../../assets/badge_diseno.webp)
+    <br/>
+    Corresponde a los encargados de la imagen, las ilustraciones y el diseño general de La Cabra.
+  </Card>
+</CardGrid>
