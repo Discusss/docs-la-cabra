@@ -1,0 +1,201 @@
+---
+title: Comandos de Información
+description: Lista y documentación de los comandos de información de La Cabra.
+---
+
+import { Badge, Aside, Tabs, TabItem, Icon } from '@astrojs/starlight/components';
+
+Esta sección detalla todos los comandos disponibles en esta categoría.
+
+<Aside type="caution">
+  Ten en cuenta que los comandos pueden ser potentes. Asegúrate de configurar correctamente los permisos en tu servidor para evitar que usuarios no autorizados puedan usarlos.
+</Aside>
+
+## Lista de comandos
+
+### `/avatar`
+
+Mostrar el avatar de un usuario o el tuyo
+
+**Alias:** `av`, `pfp`, `profilepic`, `profilepicture` | **Permisos:** <Badge text="50" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El usuario del que se mostrará el avatar
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /avatar
+
+    # Con el prefijo configurado:
+    -avatar
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/badges`
+
+Muestra las badges de un usuario
+
+**Alias:** `medallas`, `userbadges`, `barges`, `insignias` | **Permisos:** <Badge text="50" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Usuario a mostrar sus badges
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /badges
+
+    # Con el prefijo configurado:
+    -badges
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/emoji`
+
+Muestra información sobre un emoji
+
+**Alias:** `emote`, `emoticon`, `emojiinfo`, `jumbo` | **Permisos:** <Badge text="50" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`emoji`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El emoji a mostrar
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /emoji emoji:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -emoji texto_ejemplo
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/info`
+
+Muestra información sobre un usuario
+
+**Alias:** `userinfo`, `user`, `user-info` | **Permisos:** <Badge text="80" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Usuario del que se quiere obtener información
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /info
+
+    # Con el prefijo configurado:
+    -info
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/recordar`
+
+Crea un recordatorio con una duración definida
+
+**Permisos:** <Badge text="80" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`tiempo`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: En cuanto tiempo quieres que te recuerde, ej: 1h, 10m
+      <br/>*Nota: Las duraciones se expresan con un número y su unidad. Por ejemplo: `10m` son 10 minutos, `2d` son dos días y `1h15m30s` es una hora, 15 minutos y 30 segundos.*
+    - **`mensaje`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Que quieres que te recuerde
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /recordar tiempo:1h30m mensaje:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -recordar 1h30m texto_ejemplo
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/recordatorios`
+
+Gestionar tus recordatorios activos
+
+**Alias:** `reminders`, `reminderlist` | **Permisos:** <Badge text="80" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /recordatorios
+
+    # Con el prefijo configurado:
+    -recordatorios
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/roles`
+
+Devuelve una lista con todos los roles del servidor
+
+**Alias:** `role`, `rolesinfo`, `roleinfo` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`role`** <Badge text="ROL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El rol del que sacar información
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /roles
+
+    # Con el prefijo configurado:
+    -roles
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/server`
+
+Muestra información del servidor
+
+**Alias:** `guild`, `serverinfo`, `guildinfo`, `servidor` | **Permisos:** <Badge text="80" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /server
+
+    # Con el prefijo configurado:
+    -server
+    ```
+  </TabItem>
+</Tabs>
+
+---
+

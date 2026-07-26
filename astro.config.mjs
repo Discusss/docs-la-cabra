@@ -23,9 +23,9 @@ export default defineConfig({
 			defaultLocale: 'es',
 			locales: {
 				// English docs in `src/content/docs/en/`
-				en: {
+				/*en: { 									// Descomentar para añádir idiomas
 					label: 'English',
-				},
+				},*/
 				// Simplified Chinese docs in `src/content/docs/zh-cn/`
 				es: {
 					label: 'Español',
@@ -52,7 +52,11 @@ export default defineConfig({
 						es: 'Comandos'
 					},
 					items: [
-						{ label: 'Example Guide', slug: 'commands/example' },
+						{ slug: 'commands' },
+						{ slug: 'commands/moderation' },
+						{ slug: 'commands/info' },
+						{ slug: 'commands/bot' },
+						{ slug: 'commands/misc' },
 					],
 				},
 				{

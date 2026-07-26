@@ -1,0 +1,42 @@
+---
+title: Comandos de La Cabra
+description: Introducción a los comandos y su uso.
+sidebar:
+  order: 1
+---
+
+Los comandos de La Cabra se pueden usar de dos maneras diferentes: mediante **comandos de barra** (*slash commands*, usando la barra `/`) o mediante el **prefijo** configurado para el servidor.
+
+Recomendamos usar los *slash commands* ya que ofrecen una mejor integración con Discord, mostrando las opciones disponibles, las descripciones y permitiendo un autocompletado nativo directamente en la interfaz. Sin embargo, si prefieres usar comandos de texto tradicionales, puedes hacerlo configurando un prefijo en el panel de control o mediante el archivo de configuración.
+
+Para más información sobre cómo configurar el prefijo de tu servidor, consulta la página sobre el [Prefijo](../config/prefix).
+
+## Diferencias en el orden de las opciones
+
+Dependiendo de si utilizas comandos de barra o de prefijo, el comportamiento de las opciones (argumentos) varía de forma importante:
+
+- **Slash Commands (comandos de barra)**: El orden en el que selecciones las opciones da exactamente igual. Discord se encarga de asignar cada valor a su opción correspondiente de forma visual, por lo que puedes omitir cualquier parámetro opcional fácilmente.
+- **Prefix Commands (comandos de texto)**: El orden de las opciones **debe ser estrictamente el que se muestra en la documentación**. Además, si un comando tiene múltiples argumentos opcionales, **no puedes saltarte uno para usar el siguiente**. Tienes que proporcionar todas las opciones anteriores en el orden establecido.
+
+**Ejemplo demostrativo:**
+
+Imagina un comando `/castigar` que tiene tres opciones documentadas en este orden: `usuario` (Requerido), `razón` (Opcional) y `md` (Opcional). 
+
+Si quisieras usar el comando omitiendo la `razón` pero activando la opción `md`:
+
+* ✅ **Con Slash Commands**: Puedes seleccionar directamente las opciones que te interesan en cualquier orden.
+  ```bash
+  /castigar usuario:@Pepe md:True
+  ```
+* ❌ **Con Prefix Commands (Incorrecto)**: Si omites la razón, el bot interpretará el siguiente argumento como si fuera la razón.
+  ```bash
+  -castigar 123456789012345678 true  # El bot creerá que la razón es "true"
+  ```
+* ✅ **Con Prefix Commands (Correcto)**: Para llegar a la opción `md`, tienes que rellenar obligatoriamente la opción de `razón` que va antes.
+  ```bash
+  -castigar 123456789012345678 Spam true
+  ```
+
+---
+
+En las páginas de esta sección encontrarás la documentación detallada de todos los comandos de La Cabra clasificados por su categoría, incluyendo los permisos necesarios, alias y ejemplos de uso de ambos métodos.

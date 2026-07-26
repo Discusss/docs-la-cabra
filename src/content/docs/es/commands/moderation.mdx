@@ -1,0 +1,774 @@
+---
+title: Comandos de Moderación
+description: Lista y documentación de los comandos de moderación de La Cabra.
+---
+
+import { Badge, Aside, Tabs, TabItem, Icon } from '@astrojs/starlight/components';
+
+Esta sección detalla todos los comandos disponibles en esta categoría.
+
+<Aside type="caution">
+  Ten en cuenta que los comandos pueden ser potentes. Asegúrate de configurar correctamente los permisos en tu servidor para evitar que usuarios no autorizados puedan usarlos.
+</Aside>
+
+## Lista de comandos
+
+### `/avisar`
+
+Dar un aviso razonado a un usuario.
+
+**Alias:** `advertir`, `warn`, `w`, `a` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario al que se le dará el aviso.
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se le da el aviso.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /avisar usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -avisar 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/ban`
+
+Expulsa permanentemente a un usuario del servidor.
+
+**Alias:** `banear`, `ipban`, `forceban`, `bn`, `preban` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario que será expulsado permanentemente
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se expulsará permanentemente al usuario.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD.
+    - **`borrar`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Borrar o no los mensajes de los últimos 7 días.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /ban usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -ban 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/clear`
+
+Borra una cantidad específica de mensajes de un canal.
+
+**Alias:** `purge`, `borrar`, `limpiar` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`messages`** <Badge text="NÚMERO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Cantidad de mensajes a borrar
+    - **`user`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Usuario del que borrar los mensajes
+    - **`channel`** <Badge text="CANAL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Canal donde borrar los mensajes
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /clear messages:50
+
+    # Con el prefijo configurado:
+    -clear 50
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/darol`
+
+Dar uno o varios roles a un usuario
+
+**Alias:** `addrole`, `addroles`, `roleadd`, `rolesadd`, `darrol`, `darrole` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario al que se le dará el rol
+    - **`rol`** <Badge text="ROL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El rol que se le dará al usuario
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /darol usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -darol 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/delinf`
+
+Borrar una infracción de un usuario dada su ID
+
+**Alias:** `deleteinfraction`, `borrarinfraction` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`id`** <Badge text="NÚMERO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: ID de la infracción
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /delinf id:42
+
+    # Con el prefijo configurado:
+    -delinf 42
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/delinfs`
+
+Borra todas las infracciones de un usuario
+
+**Alias:** `deleteinfractions`, `borrarinfracciones`, `delinfrs` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario al que se le borraran las infracciones
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /delinfs usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -delinfs 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/infrs`
+
+Muestra las infracciones de un usuario
+
+**Alias:** `infractions`, `infrssearch` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario del que se mostrarán las infracciones
+    - **`filtro`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El filtro a aplicar
+      <br/>*Opciones disponibles:*
+      - `active` (Solo activas)
+      - `inactive` (Solo inactivas)
+      - `temporal` (Solo temporales)
+      - `warn` (Solo avisos)
+      - `ban` (Solo baneos)
+      - `kick` (Solo kicks)
+      - `mute` (Solo mutes)
+      - `appealed` (Solo apeladas)
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /infrs usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -infrs 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/kick`
+
+Expulsa a un usuario del servidor.
+
+**Alias:** `expulsar`, `kk`, `kik` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario que será expulsado
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se expulsará al usuario.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /kick usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -kick 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/linfr`
+
+Muestra la última infracción de un usuario
+
+**Alias:** `linf`, `linfra`, `lastinfr`, `lastinfraction` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario del que se mostrará las última infracción
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /linfr usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -linfr 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/link`
+
+Get information about a link on the Anti-Link system.
+
+**Alias:** `linkinfo`, `antilink` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`link`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: The link (or domain) to search
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /link link:https://discord.com
+
+    # Con el prefijo configurado:
+    -link https://discord.com
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/lock`
+
+Bloquear el envío de mensajes en un canal para un rol
+
+**Alias:** `bloquear`, `bloq`, `lockchannel` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`rol`** <Badge text="ROL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El rol al que se le bloqueará el canal
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /lock
+
+    # Con el prefijo configurado:
+    -lock
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mavisar`
+
+Avisar de manera razonada a más de un usuario con la misma razón.
+
+**Alias:** `masswarn`, `masswarns`, `masswarnings`, `masswarning`, `multiwarn`, `multiwarns`, `multiwarnings`, `multiwarning`, `mw` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuarios`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Lista de las IDs de los usuarios que serán avisados.
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se les dará el aviso.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD a los usuarios.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mavisar usuarios:@Pepe
+
+    # Con el prefijo configurado:
+    -mavisar 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mban`
+
+Expulsar permanentemente de manera razonada a más de un usuario con la misma razón.
+
+**Alias:** `massban`, `massbans`, `multiban`, `multibans`, `mb` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuarios`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Lista de las IDs de los usuarios que serán expulsados.
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se les expulsará.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD a los usuarios.
+    - **`borrar`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Borrar o no los mensajes de los últimos 7 días.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mban usuarios:@Pepe
+
+    # Con el prefijo configurado:
+    -mban 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mkick`
+
+Expulsar de manera razonada a más de un usuario con la misma razón.
+
+**Alias:** `masskick`, `masskicks`, `multikick`, `mk` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuarios`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Lista de las IDs de los usuarios que serán expulsados.
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se les expulsará.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD a los usuarios.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mkick usuarios:@Pepe
+
+    # Con el prefijo configurado:
+    -mkick 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mlinfr`
+
+Muestra la última infracción de más de un usuario
+
+**Alias:** `mlinf`, `mlinfra`, `mlastinfr`, `mlastinfraction` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuarios`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Lista de las IDs de los usuarios para buscar sus últimas infracciones.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mlinfr usuarios:@Pepe
+
+    # Con el prefijo configurado:
+    -mlinfr 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mmodinf`
+
+Modifica la razón o la duración de varias infracción dadas sus IDs.
+
+**Alias:** `massmodifyinfraction`, `massmodificarinfraccion`, `mminf`, `multimodinf` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`ids`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: IDs de las infracciones
+    - **`input`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: La nueva razón o duración
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mmodinf ids:42 input:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -mmodinf 42 texto_ejemplo
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mmute`
+
+Silenciar permanentemente a más de un usuario con la misma razón.
+
+**Alias:** `massmute`, `massmutear`, `massmutes`, `multimute`, `multimutes`, `multimutear`, `mm` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuarios`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Lista de las IDs de los usuarios que serán silenciados.
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se les silenciará.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD a los usuarios.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mmute usuarios:@Pepe
+
+    # Con el prefijo configurado:
+    -mmute 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/modinf`
+
+Modifica la razón o la duración de una infracción.
+
+**Alias:** `modifyinfraction`, `modificarinfraccion`, `minf` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`id`** <Badge text="NÚMERO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: ID de la infracción
+    - **`input`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: La nueva razón o duración
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /modinf id:42 input:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -modinf 42 texto_ejemplo
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/munmute`
+
+Des-silenciar a más de un un usuario que ha sido silenciado.
+
+**Alias:** `mdesilenciar`, `multidesilenciar` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuarios`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Lista de las IDs de los usuarios a des-silenciar.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /munmute usuarios:@Pepe
+
+    # Con el prefijo configurado:
+    -munmute 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/mute`
+
+Silenciar a un usuario de manera permanente.
+
+**Alias:** `silenciar`, `mt`, `mutear` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Usuario a silenciar
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Razón del silencio
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /mute usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -mute 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/nota`
+
+Añadir una nota a un usuario o ver una nota dada su ID
+
+**Alias:** `note`, `addnote`, `setnote`, `getnote`, `usernote` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Usuario al que añadir o ver la nota
+    - **`nota`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Nota a añadir o ID a buscar
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /nota usuario:@Pepe nota:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -nota 123456789012345678 texto_ejemplo
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/notas`
+
+Muestra las notas puestas a un usuario
+
+**Alias:** `nts`, `notes`, `usernotes`, `listnotes`, `listusernotes` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario del que se mostrarán las notas
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /notas usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -notas 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/quitarol`
+
+Quita uno o varios roles a un usuario
+
+**Alias:** `removerol`, `quitarrol` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario al que se le quitará el rol
+    - **`rol`** <Badge text="ROL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El rol que se le quitará al usuario
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /quitarol usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -quitarol 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/searchinf`
+
+Searches information about an infraction by its ID
+
+**Alias:** `infsearch`, `infr` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`id`** <Badge text="NÚMERO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: ID de la infracción
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /searchinf id:42
+
+    # Con el prefijo configurado:
+    -searchinf 42
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/slow`
+
+Limita el envío de mensajes en un canal por intervalo de tiempo
+
+**Alias:** `limitar`, `limit`, `slowmode` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`intervalo`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El intervalo de tiempo en el que se limitará el envío de mensajes.
+      <br/>*Nota: Las duraciones se expresan con un número y su unidad. Por ejemplo: `10m` son 10 minutos, `2d` son dos días y `1h15m30s` es una hora, 15 minutos y 30 segundos.*
+    - **`channel`** <Badge text="CANAL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El canal en el que se limitará el envío de mensajes.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /slow intervalo:1h30m
+
+    # Con el prefijo configurado:
+    -slow 1h30m
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/tempban`
+
+Expulsa de manera temporal a un usuario del servidor.
+
+**Alias:** `bantemp`, `bantemporal`, `tb`, `tmban` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario que será expulsado temporalmente
+    - **`duración`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Duración de la expulsión temporal.
+      <br/>*Nota: Las duraciones se expresan con un número y su unidad. Por ejemplo: `10m` son 10 minutos, `2d` son dos días y `1h15m30s` es una hora, 15 minutos y 30 segundos.*
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: La razón por la que se expulsará temporalmente al usuario.
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD.
+    - **`borrar`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Borrar o no los mensajes de los últimos 7 días.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /tempban usuario:@Pepe duración:1h30m
+
+    # Con el prefijo configurado:
+    -tempban 123456789012345678 1h30m
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/tempmute`
+
+Silenciar a un usuario de manera temporal.
+
+**Alias:** `tmpmute`, `tmute`, `tm` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Usuario a silenciar
+    - **`duración`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Duración del silencio
+      <br/>*Nota: Las duraciones se expresan con un número y su unidad. Por ejemplo: `10m` son 10 minutos, `2d` son dos días y `1h15m30s` es una hora, 15 minutos y 30 segundos.*
+    - **`razón`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Razón del silencio
+    - **`md`** <Badge text="BOOLEANO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Si se le enviará el aviso por MD.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /tempmute usuario:@Pepe duración:1h30m
+
+    # Con el prefijo configurado:
+    -tempmute 123456789012345678 1h30m
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/unban`
+
+Desbanear a un usuario que ha sido baneado temporal o permanentemente.
+
+**Alias:** `desbanear` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario a desbanear.
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /unban usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -unban 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/unbanall`
+
+Des-banea a TODOS los usuarios baneados del servidor.
+
+**Alias:** `unbanallusers` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /unbanall
+
+    # Con el prefijo configurado:
+    -unbanall
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/unlock`
+
+Desbloquear el envío de mensajes en un canal para un rol
+
+**Alias:** `desbloquear`, `deslock` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`rol`** <Badge text="ROL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El rol al que se le desbloqueará el canal
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /unlock
+
+    # Con el prefijo configurado:
+    -unlock
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/unmute`
+
+Des-silenciar a un usuario que ha sido silenciado.
+
+**Alias:** `desilenciar` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`usuario`** <Badge text="USUARIO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El usuario a des-silenciar
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /unmute usuario:@Pepe
+
+    # Con el prefijo configurado:
+    -unmute 123456789012345678
+    ```
+  </TabItem>
+</Tabs>
+
+---
+

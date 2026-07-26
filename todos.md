@@ -3,7 +3,7 @@
 - [ ] Badges
 - [ ] Estado
 - [ ] Tutoriales
-- [ ] Comandos
+- [x] Comandos
 - [x] Configuración Intro
 - [x] Configuración Autorizaciones
 - [x] Configuración Censor
@@ -21,7 +21,7 @@
 - [ ] Apelaciones y apelaciones múltiples (anuncios)
 - [x] Módulo anti-spam y funcionalidad anti-raid (anuncios testers, la config está más arriba)
 - [x] Canales de voz temporales (anuncios testers)
-- [ ] Tiempos compuestos en las duraciones (anuncios testers)
-- [ ] Comandos mmodinf, parche, pato, zorro (anuncios testers)
+- [x] Tiempos compuestos en las duraciones (anuncios testers)
+- [x] Comandos mmodinf, parche, pato, zorro (anuncios testers)
 - [x] Mensajes personalizados por MD y sus variables (anuncios testers)
 - [x] Mutes nativos de Discord

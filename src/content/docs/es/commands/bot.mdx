@@ -1,0 +1,303 @@
+---
+title: Comandos del Bot
+description: Lista y documentación de los comandos del bot de La Cabra.
+---
+
+import { Badge, Aside, Tabs, TabItem, Icon } from '@astrojs/starlight/components';
+
+Esta sección detalla todos los comandos disponibles en esta categoría.
+
+<Aside type="caution">
+  Ten en cuenta que los comandos pueden ser potentes. Asegúrate de configurar correctamente los permisos en tu servidor para evitar que usuarios no autorizados puedan usarlos.
+</Aside>
+
+## Lista de comandos
+
+### `/ayuda`
+
+Devuelve una invitación al servidor de soporte de La Cabra
+
+**Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /ayuda
+
+    # Con el prefijo configurado:
+    -ayuda
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/decir`
+
+Enviar un mensaje a un canal de texto o al canal actual
+
+**Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="texto" icon="puzzle">
+    Enviar un mensaje de texto a un canal
+
+    **Opciones:**
+    - **`texto`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El texto que se enviará
+    - **`canal`** <Badge text="CANAL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El canal donde se enviará el mensaje
+
+    **Ejemplo de uso:**
+    ```bash
+    # Como comando de barra (slash command):
+    /decir texto texto:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -decir texto texto_ejemplo
+    ```
+  </TabItem>
+  <TabItem label="embed" icon="puzzle">
+    Enviar un mensaje en forma de embed
+
+    **Opciones:**
+    - **`título`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El título del embed
+    - **`descripción`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: La descripción del embed
+    - **`color`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El color del embed (Ej: #5865F2)
+    - **`imagen`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: Enlace de la imagen del embed
+    - **`pie`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El pie del embed
+    - **`canal`** <Badge text="CANAL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El canal donde se enviará el mensaje
+
+    **Ejemplo de uso:**
+    ```bash
+    # Como comando de barra (slash command):
+    /decir embed título:texto_ejemplo descripción:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -decir embed texto_ejemplo texto_ejemplo
+    ```
+  </TabItem>
+  <TabItem label="editar" icon="puzzle">
+    Editar un mensaje enviado por el bot
+
+    **Opciones:**
+    - **`id`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: La id del mensaje a editar
+    - **`texto`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El texto con el que se editará el mensaje
+
+    **Ejemplo de uso:**
+    ```bash
+    # Como comando de barra (slash command):
+    /decir editar id:42 texto:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -decir editar 42 texto_ejemplo
+    ```
+  </TabItem>
+  <TabItem label="temp" icon="puzzle">
+    Mandar un mensaje temporal a un canal
+
+    **Opciones:**
+    - **`texto`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El texto que se enviará
+    - **`tiempo`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: El tiempo que durará el mensaje (Ej: 1s, 10m)
+      <br/>*Nota: Las duraciones se expresan con un número y su unidad. Por ejemplo: `10m` son 10 minutos, `2d` son dos días y `1h15m30s` es una hora, 15 minutos y 30 segundos.*
+    - **`canal`** <Badge text="CANAL" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El canal donde se enviará el mensaje
+
+    **Ejemplo de uso:**
+    ```bash
+    # Como comando de barra (slash command):
+    /decir temp texto:texto_ejemplo tiempo:1h30m
+
+    # Con el prefijo configurado:
+    -decir temp texto_ejemplo 1h30m
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/exportar`
+
+Exporta la configuración del servidor.
+
+**Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /exportar
+
+    # Con el prefijo configurado:
+    -exportar
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/help`
+
+Muestra el menú de comandos del bot.
+
+**Alias:** `comandos`, `h` | **Permisos:** <Badge text="50" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`comando`** <Badge text="TEXTO" variant="default" size="small" /> <Badge text="Opcional" variant="success" size="small" />: El comando del que quieres ver la ayuda
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /help
+
+    # Con el prefijo configurado:
+    -help
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/importar`
+
+Importa un archivo de configuración para el servidor.
+
+**Alias:** `import`, `setconfig`, `importfile`, `importa` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    - **`archivo`** <Badge text="ATTACHMENT" variant="default" size="small" /> <Badge text="Requerido" variant="danger" size="small" />: Archivo de configuración
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /importar archivo:texto_ejemplo
+
+    # Con el prefijo configurado:
+    -importar texto_ejemplo
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/iniciar`
+
+Iniciar una configuración desde 0, borrando la actual.
+
+**Alias:** `reset`, `restart` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /iniciar
+
+    # Con el prefijo configurado:
+    -iniciar
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/invitacion`
+
+Devuelve una invitación para añadir a La Cabra a tu servidor
+
+**Alias:** `invite`, `invitebot`, `invitar`, `invitación` | **Permisos:** <Badge text="50" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /invitacion
+
+    # Con el prefijo configurado:
+    -invitacion
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/parche`
+
+Ver las notas del último parche
+
+**Alias:** `patch`, `patches`, `lastpatch` | **Permisos:** <Badge text="100" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /parche
+
+    # Con el prefijo configurado:
+    -parche
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/ping`
+
+Mostrar el ping del bot
+
+**Alias:** `pong` | **Permisos:** <Badge text="0" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /ping
+
+    # Con el prefijo configurado:
+    -ping
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+### `/soporte`
+
+Devuelve una invitación al servidor de soporte de La Cabra
+
+**Permisos:** <Badge text="50" variant="note" size="small" />
+
+<Tabs>
+  <TabItem label="Opciones" icon="setting">
+    *Este comando no tiene opciones.*
+  </TabItem>
+  <TabItem label="Ejemplo de uso" icon="rocket">
+    ```bash
+    # Como comando de barra (slash command):
+    /soporte
+
+    # Con el prefijo configurado:
+    -soporte
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
