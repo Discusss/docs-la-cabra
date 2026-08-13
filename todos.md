@@ -1,18 +1,18 @@
 - [x] Introducción
-- [ ] Donaciones
-- [ ] Badges
-- [ ] Estado
-- [ ] Tutoriales
+- [ ] ~~Donaciones~~ ( Ya sale en la web )
+- [x] Badges
+- [ ] ~~Estado~~ ( Ya sale en la web )
+- [ ] ~~Tutoriales~~ ( Desactualizados? )
 - [x] Comandos
 - [x] Configuración Intro
 - [x] Configuración Autorizaciones
 - [x] Configuración Censor
-- [ ] Configuración Comandos Omitidos
+- [ ] ~~Configuración Comandos Omitidos~~ ( Ya no está )
 - [x] Configuración Logs
 - [x] Configuración Moderación
 - [x] Configuración Prefijo
 - [x] Configuración Spam
-- [ ] Zonas horarias válidas
+- [ ] ~~Zonas horarias válidas~~ ( Se usan los timestamps de Discord )
 
 
 ## Cosas nuevas
