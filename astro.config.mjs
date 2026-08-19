@@ -5,7 +5,7 @@ import { escapeHTML } from 'astro/runtime/server/escape.js';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://elscabres.phodit.xyz/",
+	site: "https://docs.lacabra.app/",
 	//base: "docs-la-cabra",
 	redirects: {
 		'/': '/es/',
